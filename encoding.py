@@ -1,4 +1,7 @@
 # SUBFONCTIONS
+import string
+
+
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
@@ -13,8 +16,7 @@ def polybe_decode(text):
 def rot13(text):
     """Takes in argument a text (string)
     Returns the text after applying the ROT13 encoding"""
-    # TODO effectuer la conversion
-    return text
+    return cesar(text, 13)
 
 
 def polybe(text, encrypt_mode):
@@ -25,6 +27,30 @@ def polybe(text, encrypt_mode):
 def cesar(text, key):
     """Takes in argument a text (string) a key (int)
     Returns the encoded/decoded text"""
+    # LISTS
+    uppercase = list(string.ascii_uppercase)
+    lowercase = list(string.ascii_lowercase)
+    numbers = list(string.digits)
+
+    for i in range(len(text)):  # Parse all the characters
+        char = text[i]
+        if char in uppercase:
+            new_index = uppercase.index(char) + key  # Get the index of the new letter (old one + key)
+            while new_index > 25:  # Convert the number if it is out of bounds
+                new_index -= 26
+            text = text[:i] + uppercase[new_index] + text[i+1:]  # Replace the character of index i by a new one
+        elif char in lowercase:
+            new_index = lowercase.index(char) + key
+            while new_index > 25:
+                new_index -= 26
+            text = text[:i] + lowercase[new_index] + text[i+1:]
+        elif char in numbers:
+            new_index = numbers.index(char) + key
+            while new_index > 9:
+                new_index -= 10
+            text = text[:i] + numbers[new_index] + text[i+1:]
+        # If the char isn't in a list (space, special caracter) it doesn't get replaced
+    return text
 
 
 def vigenere(encrypt_mode, text, key):
@@ -39,7 +65,7 @@ def encode(encrypt_mode, text, algorithm, key):
         if encrypt_mode == 1:
             print(cesar(text, key))
         else:
-            print(cesar(text, 26-key))  # I do this cause decoding with a x key equals to encoding with a 26-x key
+            print(cesar(text, 26 - key))  # I do this cause decoding with a x key equals to encoding with a 26-x key
     elif algorithm == 2:
         print(vigenere(encrypt_mode, text, key))
     elif algorithm == 3:
