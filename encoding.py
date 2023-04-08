@@ -5,11 +5,13 @@ import string
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
+    # TODO Polybe encode
 
 
 def polybe_decode(text):
     """Takes in argument a text (string)
     Returns the text decoded by Polybius square"""
+    # TODO Polybe decode
 
 
 # FINAL FUNCTIONS
@@ -22,6 +24,7 @@ def rot13(text):
 def polybe(text, encrypt_mode):
     """Takes in argument a text (string) and an Encrypt Mode (1-2)
     Returns the encoded/decoded text"""
+    # TODO Polybe
 
 
 def cesar(text, key):
@@ -56,6 +59,7 @@ def cesar(text, key):
 def vigenere(encrypt_mode, text, key):
     """Takes in argument an encrypt mode (1-2), a text (string) and a key (string)
     Returns the encoded/decoded text"""
+    # TODO Vigenere code
 
 
 def encode(encrypt_mode, text, algorithm, key):
@@ -72,3 +76,5 @@ def encode(encrypt_mode, text, algorithm, key):
         print(rot13(text))
     elif algorithm == 4:
         print(polybe(text, encrypt_mode))
+
+    # TODO ask for user if he want to encode another file or if he want to end the program
