@@ -114,3 +114,22 @@ def vigenere_table():
         uppercase.pop(0)
     return table
 
+
+def convert_key_for_vigenere(key, text):
+    """Takes in argument a key and a text (ONLY CAPS)
+    Returns the key repeated time enough to have the same lenght as the text and have letters where there are letters in
+    the text
+    TLDR: make the key compatible for use in vigenere code"""
+    new_key = ""
+    letters = list(string.ascii_uppercase)
+
+    j = 0
+    for i in range(len(text)):
+        if text[i] in letters:
+            new_key += key[j % len(key)]
+            j += 1
+        else:
+            new_key += " "
+
+    return new_key
+
