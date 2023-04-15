@@ -133,3 +133,20 @@ def convert_key_for_vigenere(key, text):
 
     return new_key
 
+
+def vigenere_encode(text, key):
+    text = text.upper()
+    key = convert_key_for_vigenere(key.upper(), text)
+    letters = list(string.ascii_uppercase)
+    table = vigenere_table()
+    encoded_text = ""
+
+    for i in range(len(text)):
+        if text[i] in letters:
+            txt_index = letters.index(text[i])
+            key_index = letters.index(key[i])
+            new_letter = table[key_index][txt_index]
+            text = text[:i] + new_letter + text[i+1:]
+
+    return text
+
