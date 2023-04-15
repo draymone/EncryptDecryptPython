@@ -1,4 +1,5 @@
 import string
+import numpy
 
 
 def convert_for_polybe_encode(text):
@@ -43,7 +44,7 @@ def get_polybius_square():
     Returns a 5x5 array containing the letters of the alphabet"""
     letters = list(string.ascii_uppercase)
     letters.remove("W")
-    polybius_square = [[], [], [], [], []]
+    polybius_square = numpy.empty((5, 5), dtype=str).tolist()
 
     for i in range(5):
         sublist = []
