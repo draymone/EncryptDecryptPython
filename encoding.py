@@ -46,7 +46,7 @@ def vigenere(encrypt_mode, text, key):
     Returns the encoded/decoded text"""
     if encrypt_mode == 1:
         return utils.vigenere_encode(text, key)
-    return utils.vigenere_decode(text, key) 
+    return utils.vigenere_decode(text, key)
 
 
 def encode(encrypt_mode, text, algorithm, key):

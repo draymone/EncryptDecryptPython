@@ -47,7 +47,6 @@ def getTextToCrypt(crypt_mode):
     return text, key
 
 
-print(utils.get_polybe_encoded_char("A"))
 running = True  # Initialize this value as True so the loop run at least one
 print("Bienvenue sur Encrypt&Decrypt")
 
