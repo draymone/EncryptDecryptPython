@@ -100,3 +100,17 @@ def polybe_decode(text):
         decoded_text += get_polybe_decoded_char(coordinates[2 * j], coordinates[2 * j + 1])
 
     return decoded_text
+
+
+def vigenere_table():
+    """Takes no argument
+    Returns the Vigenere's table"""
+    table = numpy.empty((26, 26), dtype=str).tolist()
+
+    uppercase = list(string.ascii_uppercase)
+    for i in range(len(table)):
+        table[i] = uppercase[:]
+        uppercase.append(uppercase[0])
+        uppercase.pop(0)
+    return table
+
