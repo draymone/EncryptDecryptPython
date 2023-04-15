@@ -150,3 +150,20 @@ def vigenere_encode(text, key):
 
     return text
 
+
+def vigenere_decode(text, key):
+    text = text.upper()
+    key = convert_key_for_vigenere(key.upper(), text)
+    letters = list(string.ascii_uppercase)
+    table = vigenere_table()
+    encoded_text = ""
+
+    for i in range(len(text)):
+        if text[i] in letters:
+            key_index = letters.index(key[i])
+            table_line = table[key_index]
+            new_letter_index = table_line.index(text[i])
+            new_letter = letters[new_letter_index]
+            text = text[:i] + new_letter + text[i + 1:]
+
+    return text
