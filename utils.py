@@ -23,6 +23,21 @@ def convert_for_polybe_encode(text):
     return text
 
 
+def convert_for_polybe_decode(text):
+    """Takes in argument a text (string)
+    Returns the text converted for being used in the polybe encoding"""
+
+    i = 0
+    digits = list(string.digits)
+    while i < len(text):  # Remove non numeric characters
+        if not text[i] in digits:
+            text = text[:i] + text[i + 1:len(text)]
+            i -= 1
+        i += 1
+
+    return text
+
+
 def get_polybius_square():
     """Takes no argument
     Returns a 5x5 array containing the letters of the alphabet"""
