@@ -44,7 +44,9 @@ def cesar(text, key):
 def vigenere(encrypt_mode, text, key):
     """Takes in argument an encrypt mode (1-2), a text (string) and a key (string)
     Returns the encoded/decoded text"""
-    # TODO Vigenere code
+    if encrypt_mode == 1:
+        return utils.vigenere_encode(text, key)
+    return utils.vigenere_decode(text, key) 
 
 
 def encode(encrypt_mode, text, algorithm, key):
