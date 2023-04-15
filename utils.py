@@ -51,6 +51,13 @@ def get_polybe_encoded_char(char):
             return str(i + 1) + str(polybius_square[i].index(char) + 1)
 
 
+def get_polybe_decoded_char(x, y):
+    """Takes in argument the character coordinates (1-5)
+    Returns the associated letter with polybius' square"""
+    polybius_square = get_polybius_square()
+    return polybius_square[x-1][y-1]
+
+
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
