@@ -24,7 +24,10 @@ def rot13(text):
 def polybe(text, encrypt_mode):
     """Takes in argument a text (string) and an Encrypt Mode (1-2)
     Returns the encoded/decoded text"""
-    # TODO Polybe
+    if encrypt_mode == 1:
+        return polybe_encode(text)
+    elif encrypt_mode == 2:
+        return polybe_decode(text)
 
 
 def cesar(text, key):
