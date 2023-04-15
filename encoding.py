@@ -77,4 +77,7 @@ def encode(encrypt_mode, text, algorithm, key):
     elif algorithm == 4:
         print(polybe(text, encrypt_mode))
 
-    # TODO ask for user if he want to encode another file or if he want to end the program
+    replay = input("\nVoulez vous encoder un autre texte ? (o/n)")
+    if replay == "o":
+        return True
+    return False
