@@ -8,8 +8,7 @@ def getCryptMode():
     mode_correct_values = ["1", "2"]
     algorithm_correct_values = ["1", "2", "3", "4"]
 
-    # Get if the user want to encode / decode
-    print("Bienvenue sur Encrypt&Decrypt")
+    # Get if the user wants to encode / decode
     mode = input("Souhaitez vous encoder (1) un message ou en déchiffer (2) un ?\nTapez 1 ou 2: ")
     while mode not in mode_correct_values:
         mode = input("Veuillez entrer 1 ou 2: ")
@@ -49,6 +48,7 @@ def getTextToCrypt(crypt_mode):
 
 
 running = True  # Initialize this value as True so the loop run at least one
+print("Bienvenue sur Encrypt&Decrypt")
 
 while running:
     cryptMode = getCryptMode()  # (Algorithme, Encrypt/Decrypt)
