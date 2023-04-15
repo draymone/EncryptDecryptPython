@@ -29,19 +29,13 @@ def cesar(text, key):
     for i in range(len(text)):  # Parse all the characters
         char = text[i]
         if char in uppercase:
-            new_index = uppercase.index(char) + key  # Get the index of the new letter (old one + key)
-            while new_index > 25:  # Convert the number if it is out of bounds
-                new_index -= 26
+            new_index = (uppercase.index(char) + key) % 26  # Get the index of the new letter (old one + key)
             text = text[:i] + uppercase[new_index] + text[i+1:]  # Replace the character of index i by a new one
         elif char in lowercase:
-            new_index = lowercase.index(char) + key
-            while new_index > 25:
-                new_index -= 26
+            new_index = (lowercase.index(char) + key) % 26
             text = text[:i] + lowercase[new_index] + text[i+1:]
         elif char in numbers:
-            new_index = numbers.index(char) + key
-            while new_index > 9:
-                new_index -= 10
+            new_index = (numbers.index(char) + key) % 10
             text = text[:i] + numbers[new_index] + text[i+1:]
         # If the char isn't in a list (space, special caracter) it doesn't get replaced
     return text
