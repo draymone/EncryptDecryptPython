@@ -86,4 +86,16 @@ def polybe_encode(text):
 def polybe_decode(text):
     """Takes in argument a text (string)
     Returns the text decoded by Polybius square"""
-    # TODO Polybe decode
+    text = convert_for_polybe_decode(text)
+    if (len(text) % 2) == 1:
+        return
+    coordinates = []
+    decoded_text = ""
+    for i in range(int(len(text)/2)):
+        temporary_coordinates = (int(text[2*i]), int(text[2*i+1]))
+        coordinates += temporary_coordinates
+
+    for j in range(int(len(coordinates)/2)):
+        decoded_text += get_polybe_decoded_char(coordinates[2 * j], coordinates[2 * j + 1])
+
+    return decoded_text
