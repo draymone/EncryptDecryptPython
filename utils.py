@@ -39,6 +39,18 @@ def get_polybius_square():
     return polybius_square
 
 
+def get_polybe_encoded_char(char):
+    """Takes an uppercase letter
+    Returns this encoded letter with polybius' square"""
+    if not (char in string.ascii_uppercase) or (char == "W"):  # Check if the character is acceptable
+        return
+
+    polybius_square = get_polybius_square()
+    for i in range(5):
+        if char in polybius_square[i]:
+            return str(i + 1) + str(polybius_square[i].index(char) + 1)
+
+
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
@@ -49,6 +61,3 @@ def polybe_decode(text):
     """Takes in argument a text (string)
     Returns the text decoded by Polybius square"""
     # TODO Polybe decode
-
-
-
