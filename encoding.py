@@ -1,4 +1,3 @@
-# SUBFONCTIONS
 import string
 import utils
 

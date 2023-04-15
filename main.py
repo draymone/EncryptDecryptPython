@@ -47,6 +47,7 @@ def getTextToCrypt(crypt_mode):
     return text, key
 
 
+print(encoding.polybe("Bonjour ! é'é", 1))
 running = True  # Initialize this value as True so the loop run at least one
 print("Bienvenue sur Encrypt&Decrypt")
 
