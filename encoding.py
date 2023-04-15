@@ -2,6 +2,7 @@
 import string
 import utils
 
+
 # FINAL FUNCTIONS
 def rot13(text):
     """Takes in argument a text (string)
