@@ -61,7 +61,11 @@ def get_polybe_decoded_char(x, y):
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
-    # TODO Polybe encode
+    text = convert_for_polybe(text)
+    converted = ""
+    for letter in text:
+        converted += str(get_polybe_encoded_char(letter))
+    return converted
 
 
 def polybe_decode(text):
