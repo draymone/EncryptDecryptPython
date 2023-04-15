@@ -1,7 +1,7 @@
 import string
 
 
-def convert_for_polybe(text):
+def convert_for_polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text converted for being used in the polybe encoding"""
     text = text.upper()  # Make the text uppercase
@@ -61,7 +61,7 @@ def get_polybe_decoded_char(x, y):
 def polybe_encode(text):
     """Takes in argument a text (string)
     Returns the text encoded with Polybius square"""
-    text = convert_for_polybe(text)
+    text = convert_for_polybe_encode(text)
     converted = ""
     for letter in text:
         converted += str(get_polybe_encoded_char(letter))

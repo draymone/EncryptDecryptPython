@@ -1,5 +1,4 @@
 import encoding
-import utils # TODO remove this line
 
 
 def getCryptMode():
