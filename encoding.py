@@ -1,18 +1,6 @@
 # SUBFONCTIONS
 import string
-
-
-def polybe_encode(text):
-    """Takes in argument a text (string)
-    Returns the text encoded with Polybius square"""
-    # TODO Polybe encode
-
-
-def polybe_decode(text):
-    """Takes in argument a text (string)
-    Returns the text decoded by Polybius square"""
-    # TODO Polybe decode
-
+import utils
 
 # FINAL FUNCTIONS
 def rot13(text):
@@ -25,9 +13,9 @@ def polybe(text, encrypt_mode):
     """Takes in argument a text (string) and an Encrypt Mode (1-2)
     Returns the encoded/decoded text"""
     if encrypt_mode == 1:
-        return polybe_encode(text)
+        return utils.polybe_encode(text)
     elif encrypt_mode == 2:
-        return polybe_decode(text)
+        return utils.polybe_decode(text)
 
 
 def cesar(text, key):
