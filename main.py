@@ -1,4 +1,5 @@
 import encoding
+import string
 
 
 def getCryptMode():
@@ -39,7 +40,17 @@ def getTextToCrypt(crypt_mode):
         key = int(key)
 
     if crypt_mode[0] == 2:  # Vigenère Code (only letters)
-        while not key.isalpha():
+        key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ")
+        letters = string.ascii_uppercase
+        key = key.upper()
+        i = 0
+        while i < len(key):  # Remove non letters characters
+            if not key[i] in letters:
+                key = key[:i] + key[i+1:len(key)]
+                i -= 1
+            i += 1
+
+        if key == "":  # Return if the key is empty
             key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ")
 
     text = input("Veuillez entrer le texte à crypter/décrypter: ")

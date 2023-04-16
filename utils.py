@@ -139,7 +139,6 @@ def vigenere_encode(text, key):
     key = convert_key_for_vigenere(key.upper(), text)
     letters = list(string.ascii_uppercase)
     table = vigenere_table()
-    encoded_text = ""
 
     for i in range(len(text)):
         if text[i] in letters:
@@ -156,7 +155,6 @@ def vigenere_decode(text, key):
     key = convert_key_for_vigenere(key.upper(), text)
     letters = list(string.ascii_uppercase)
     table = vigenere_table()
-    encoded_text = ""
 
     for i in range(len(text)):
         if text[i] in letters:
