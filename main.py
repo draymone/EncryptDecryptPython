@@ -29,29 +29,28 @@ def getCryptMode():
 def getTextToCrypt(crypt_mode):
     """Will get the information about the text, this means the text and the encoding key associated"""
 
-    key = "a1"  # Initialize the key as a1 so the loops underneath will run at least once
+    key = ""  # Initialize the key as a1 so the loops underneath will run at least once
 
     """ALTERNATIVE CODE
     I could make a while true, make a if condition that check if the text is numeric/alpha and break if the condition
     is valid"""
     if crypt_mode[0] == 1:  # César Code (only number)
-        while not key.isnumeric():
+        while not key.isnumeric() or key == "":
             key = input("Veuillez entrer la clé de chiffrement (nombre): ")
         key = int(key)
 
     if crypt_mode[0] == 2:  # Vigenère Code (only letters)
-        key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ")
+        # key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ")
         letters = string.ascii_uppercase
-        key = key.upper()
-        i = 0
-        while i < len(key):  # Remove non letters characters
-            if not key[i] in letters:
-                key = key[:i] + key[i+1:len(key)]
-                i -= 1
-            i += 1
 
-        if key == "":  # Return if the key is empty
-            key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ")
+        while key == "":
+            key = input("Veuillez entrer la clé de chiffrement (lettres seulement): ").upper()
+            i = 0
+            while i < len(key):  # Remove non letters characters
+                if not key[i] in letters:
+                    key = key[:i] + key[i + 1:len(key)]
+                    i -= 1
+                i += 1
 
     text = input("Veuillez entrer le texte à crypter/décrypter: ")
 

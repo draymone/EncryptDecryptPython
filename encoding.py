@@ -64,7 +64,7 @@ def encode(encrypt_mode, text, algorithm, key):
     elif algorithm == 4:
         print(polybe(text, encrypt_mode))
 
-    replay = input("\nVoulez vous encoder un autre texte ? (o/n)")
-    if replay == "o":
+    replay = input("\nVoulez vous encoder/décoder un autre texte ? (o/n)")
+    if replay.lower() == "o":
         return True
     return False
